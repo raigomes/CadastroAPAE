@@ -15,8 +15,6 @@ public class Main
         //f.setMaximumSize(d);
         f.setPreferredSize(d);
         
-        f.setTitle("Sistema de Cadastro APAE");
-        
         f.setLocationRelativeTo(null); // centraliza a janela no meio da tela
         f.setResizable(false); // sem redimensionamento
         f.setVisible(true); // mostra janela

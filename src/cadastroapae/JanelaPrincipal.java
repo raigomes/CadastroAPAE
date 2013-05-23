@@ -37,6 +37,7 @@ public class JanelaPrincipal extends javax.swing.JFrame
         menuItemSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Cadastro APAE");
 
         menuArquivo.setText("Arquivo");
 

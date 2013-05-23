@@ -1,6 +1,6 @@
 package cadastroapae;
 
-public class CadastroAPAE
+public class Main
 {
     public static void main(String[] args)
     {

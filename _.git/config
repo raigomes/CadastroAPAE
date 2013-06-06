@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	logallrefupdates = true
+	bare = false
+[remote "CadastroAPAE"]
+	url = https://github.com/raphaelbernardino/CadastroAPAE.git
+	fetch = +refs/heads/master:refs/remotes/CadastroAPAE/master

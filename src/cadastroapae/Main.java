@@ -1,5 +1,6 @@
 package cadastroapae;
 
+<<<<<<< HEAD
 import telas.JanelaPrincipal;
 import java.awt.Dimension;
 
@@ -8,6 +9,15 @@ public class Main
     public static void main(String[] args)
     {
         System.out.println("Olá amiguinhos, eu sou o Dollynho! :)");
+=======
+import java.awt.Dimension;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Olá amiguinhos, eu sou o Dollynho!");
+>>>>>>> branch 'master' of https://github.com/raphaelbernardino/CadastroAPAE.git
         JanelaPrincipal f = new JanelaPrincipal();
         
         // fixar o tamanho da tela (não sei se é necessário)

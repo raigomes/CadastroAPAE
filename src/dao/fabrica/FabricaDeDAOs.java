@@ -16,7 +16,7 @@ public class FabricaDeDAOs
             prop = ResourceBundle.getBundle("dao");
         } catch (MissingResourceException e)
         {
-            System.out.println("Aquivo dao.properties não encontrado.");
+            System.out.println("Arquivo dao.properties não encontrado.");
             throw new InfraestruturaException(e);
         }
     }
@@ -31,11 +31,7 @@ public class FabricaDeDAOs
         {
             nomeDaClasse = prop.getString(tipo.getSimpleName());
             dao = (T) Class.forName(nomeDaClasse).newInstance();
-        } catch (InstantiationException e)
-        {
-            System.out.println("Não foi possível criar um objeto do tipo " + nomeDaClasse);
-            throw new InfraestruturaException(e);
-        } catch (IllegalAccessException e)
+        } catch (InstantiationException | IllegalAccessException e)
         {
             System.out.println("Não foi possível criar um objeto do tipo " + nomeDaClasse);
             throw new InfraestruturaException(e);

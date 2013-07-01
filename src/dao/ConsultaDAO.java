@@ -1,6 +1,6 @@
 package dao;
 
-public class ConsultaDAO
+public interface ConsultaDAO
 {
     
 }

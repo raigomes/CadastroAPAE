@@ -1,6 +1,6 @@
 package dao;
 
-public class SecretariaDAO
+public interface SecretariaDAO
 {
     
 }

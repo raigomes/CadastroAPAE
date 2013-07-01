@@ -1,6 +1,6 @@
 package dao;
 
-public class DiretoraDAO
+public interface DiretoraDAO
 {
     
 }

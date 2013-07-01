@@ -1,7 +1,7 @@
 package servico;
 
 import java.util.List;
-import util.JPAUtil;
+//import util.ConnUtil;
 import modelo.Paciente;
 import dao.PacienteDAO;
 import dao.fabrica.FabricaDeDAOs;
@@ -20,18 +20,18 @@ public class PacienteAppService
         {
             // NENHUMA VALIDAÇÃO ESTÁ SENDO REALIZADA AQUI!!!
 
-            JPAUtil.beginTransaction();
+            //ConnUtil.beginTransaction();
 
             long numero = pacienteDAO.cadastra(umPaciente);
 
-            JPAUtil.commitTransaction();
+            //ConnUtil.commitTransaction();
 
             return numero;
         } catch (InfraestruturaException e)
         {
             try
             {
-                JPAUtil.rollbackTransaction();
+                //ConnUtil.rollbackTransaction();
             } catch (InfraestruturaException ie)
             {
             }
@@ -39,25 +39,24 @@ public class PacienteAppService
             throw e;
         } finally
         {
-            JPAUtil.closeEntityManager();
+            //ConnUtil.closeEntityManager();
         }
     }
 
-    public void altera(Paciente umPaciente)
-            throws AplicacaoException
+    public void altera(Paciente umPaciente) throws AplicacaoException
     {
         try
         {
-            JPAUtil.beginTransaction();
+            //ConnUtil.beginTransaction();
 
             pacienteDAO.altera(umPaciente);
 
-            JPAUtil.commitTransaction();
+            //ConnUtil.commitTransaction();
         } catch (ObjetoNaoEncontradoException e)
         {
             try
             {
-                JPAUtil.rollbackTransaction();
+                //ConnUtil.rollbackTransaction();
             } catch (InfraestruturaException ie)
             {
                 throw ie;
@@ -68,7 +67,7 @@ public class PacienteAppService
         {
             try
             {
-                JPAUtil.rollbackTransaction();
+                //ConnUtil.rollbackTransaction();
             } catch (InfraestruturaException ie)
             {
             }
@@ -76,36 +75,35 @@ public class PacienteAppService
             throw e;
         } finally
         {
-            JPAUtil.closeEntityManager();
+            //ConnUtil.closeEntityManager();
         }
     }
 
-    public void exclui(long numero)
-            throws AplicacaoException
+    public void exclui(long numero) throws AplicacaoException
     {
         try
         {
-            JPAUtil.beginTransaction();
+            //ConnUtil.beginTransaction();
 
             pacienteDAO.exclui(numero);
 
-            JPAUtil.commitTransaction();
+            //ConnUtil.commitTransaction();
         } catch (ObjetoNaoEncontradoException e)
         {
             try
             {
-                JPAUtil.rollbackTransaction();
+                //ConnUtil.rollbackTransaction();
             } catch (InfraestruturaException ie)
             {
                 throw ie;
             }
 
-            throw new AplicacaoException("Paciente não encontrada");
+            throw new AplicacaoException("Paciente não encontrado");
         } catch (InfraestruturaException e)
         {
             try
             {
-                JPAUtil.rollbackTransaction();
+                //ConnUtil.rollbackTransaction();
             } catch (InfraestruturaException ie)
             {
             }
@@ -113,12 +111,11 @@ public class PacienteAppService
             throw e;
         } finally
         {
-            JPAUtil.closeEntityManager();
+            //ConnUtil.closeEntityManager();
         }
     }
 
-    public Paciente recuperaUmaReserva(long numero)
-            throws AplicacaoException
+    public Paciente recuperaUmPaciente(long numero) throws AplicacaoException
     {
         try
         {
@@ -127,14 +124,14 @@ public class PacienteAppService
             return umPaciente;
         } catch (ObjetoNaoEncontradoException e)
         {
-            throw new AplicacaoException("Reserva não encontrada");
+            throw new AplicacaoException("Paciente não encontrado");
         } finally
         {
-            JPAUtil.closeEntityManager();
+            //ConnUtil.closeEntityManager();
         }
     }
 
-    public List<Paciente> recuperaReservas()
+    public List<Paciente> recuperaListaDePacientes()
     {
         try
         {
@@ -143,7 +140,7 @@ public class PacienteAppService
             return pacientes;
         } finally
         {
-            JPAUtil.closeEntityManager();
+            //ConnUtil.closeEntityManager();
         }
     }
 }

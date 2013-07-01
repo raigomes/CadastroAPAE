@@ -60,9 +60,4 @@ public class Util
             return NumberFormat.getInstance(new Locale("pt", "BR")).parse(valorMonetario).doubleValue();
         }
     }
-    
-    public static void log(String msg)
-    {
-        System.out.println(new Date(System.currentTimeMillis()) + ": " + msg);
-    }
 }

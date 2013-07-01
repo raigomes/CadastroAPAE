@@ -24,20 +24,17 @@ public class Banco implements Serializable
 
     public boolean adicionaMedico(Medico umMedico)
     {
-        listaDeMedicos.add(umMedico);
-        return true;
+        return listaDeMedicos.add(umMedico);
     }
 
     public boolean adicionaConsulta(Consulta umaConsulta)
     {
-        listaDeConsultas.add(umaConsulta);
-        return true;
+        return listaDeConsultas.add(umaConsulta);
     }
 
     public boolean adicionaUsuario(Usuario umUsuario)
     {
-        listaDeUsuarios.add(umUsuario);
-        return true;
+        return listaDeUsuarios.add(umUsuario);
     }
 
     public List<Paciente> getListaDePacientes()

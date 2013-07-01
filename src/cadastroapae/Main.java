@@ -7,7 +7,6 @@ public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Olá amiguinhos, eu sou o Dollynho! :)");
         JanelaPrincipal f = new JanelaPrincipal();
         
         // fixar o tamanho da tela (não sei se é necessário)

@@ -34,8 +34,7 @@ public class Util
         return sdf.format(umaData);
     }
 
-    public static double strToDouble(String valorMonetario)
-            throws ParseException
+    public static double strToDouble(String valorMonetario) throws ParseException
     {
         if (valorMonetario == null || "".equals(valorMonetario))
         {
@@ -46,14 +45,12 @@ public class Util
         }
     }
 
-    public static String doubleToStr(double valorMonetario)
-            throws ParseException
+    public static String doubleToStr(double valorMonetario) throws ParseException
     {
         return nf2.format(valorMonetario);
     }
 
-    public static double strToValorMonetario(String valorMonetario)
-            throws ParseException
+    public static double strToValorMonetario(String valorMonetario) throws ParseException
     {
         if (valorMonetario == null || "".equals(valorMonetario))
         {
@@ -62,5 +59,10 @@ public class Util
         {
             return NumberFormat.getInstance(new Locale("pt", "BR")).parse(valorMonetario).doubleValue();
         }
+    }
+    
+    public static void log(String msg)
+    {
+        System.out.println(new Date(System.currentTimeMillis()) + ": " + msg);
     }
 }

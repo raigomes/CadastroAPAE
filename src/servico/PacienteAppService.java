@@ -2,19 +2,19 @@ package servico;
 
 import java.util.List;
 import util.JPAUtil;
-import modelo.Reserva;
-import dao.ReservaDAO;
+import modelo.Paciente;
+import dao.PacienteDAO;
 import dao.fabrica.FabricaDeDAOs;
 import exception.AplicacaoException;
 import exception.InfraestruturaException;
 import exception.ObjetoNaoEncontradoException;
 
-public class ReservaAppService
+public class PacienteAppService
 {
 
-    private static ReservaDAO reservaDAO = FabricaDeDAOs.getDAO(ReservaDAO.class);
+    private static PacienteDAO pacienteDAO = FabricaDeDAOs.getDAO(PacienteDAO.class);
 
-    public long inclui(Reserva umaReserva)
+    public long inclui(Paciente umPaciente)
     {
         try
         {
@@ -22,7 +22,7 @@ public class ReservaAppService
 
             JPAUtil.beginTransaction();
 
-            long numero = reservaDAO.inclui(umaReserva);
+            long numero = pacienteDAO.cadastra(umPaciente);
 
             JPAUtil.commitTransaction();
 
@@ -43,14 +43,14 @@ public class ReservaAppService
         }
     }
 
-    public void altera(Reserva umaReserva)
+    public void altera(Paciente umPaciente)
             throws AplicacaoException
     {
         try
         {
             JPAUtil.beginTransaction();
 
-            reservaDAO.altera(umaReserva);
+            pacienteDAO.altera(umPaciente);
 
             JPAUtil.commitTransaction();
         } catch (ObjetoNaoEncontradoException e)
@@ -63,7 +63,7 @@ public class ReservaAppService
                 throw ie;
             }
 
-            throw new AplicacaoException("Reserva não encontrada");
+            throw new AplicacaoException("Paciente não encontrado");
         } catch (InfraestruturaException e)
         {
             try
@@ -87,7 +87,7 @@ public class ReservaAppService
         {
             JPAUtil.beginTransaction();
 
-            reservaDAO.exclui(numero);
+            pacienteDAO.exclui(numero);
 
             JPAUtil.commitTransaction();
         } catch (ObjetoNaoEncontradoException e)
@@ -100,7 +100,7 @@ public class ReservaAppService
                 throw ie;
             }
 
-            throw new AplicacaoException("Reserva não encontrada");
+            throw new AplicacaoException("Paciente não encontrada");
         } catch (InfraestruturaException e)
         {
             try
@@ -117,14 +117,14 @@ public class ReservaAppService
         }
     }
 
-    public Reserva recuperaUmaReserva(long numero)
+    public Paciente recuperaUmaReserva(long numero)
             throws AplicacaoException
     {
         try
         {
-            Reserva umaReserva = reservaDAO.recuperaUmaReserva(numero);
+            Paciente umPaciente = pacienteDAO.recuperaPaciente(numero);
 
-            return umaReserva;
+            return umPaciente;
         } catch (ObjetoNaoEncontradoException e)
         {
             throw new AplicacaoException("Reserva não encontrada");
@@ -134,13 +134,13 @@ public class ReservaAppService
         }
     }
 
-    public List<Reserva> recuperaReservas()
+    public List<Paciente> recuperaReservas()
     {
         try
         {
-            List<Reserva> reservas = reservaDAO.recuperaReservas();
+            List<Paciente> pacientes = pacienteDAO.recuperaPacientes();
 
-            return reservas;
+            return pacientes;
         } finally
         {
             JPAUtil.closeEntityManager();

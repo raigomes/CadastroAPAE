@@ -26,13 +26,14 @@ public class JanelaPrincipal extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         menuBar = new javax.swing.JMenuBar();
         menuArquivo = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuItemLogin = new javax.swing.JMenuItem();
         menuItemExit = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         menuAjuda = new javax.swing.JMenu();
         menuItemSobre = new javax.swing.JMenuItem();
 
@@ -41,12 +42,14 @@ public class JanelaPrincipal extends javax.swing.JFrame
 
         menuArquivo.setText("Arquivo");
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Cadastrar");
+        menuArquivo.add(jMenuItem1);
+
         menuItemLogin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         menuItemLogin.setText("Fazer login");
-        menuItemLogin.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        menuItemLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemLoginActionPerformed(evt);
             }
         });
@@ -54,16 +57,17 @@ public class JanelaPrincipal extends javax.swing.JFrame
 
         menuItemExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         menuItemExit.setText("Sair");
-        menuItemExit.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        menuItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemExitActionPerformed(evt);
             }
         });
         menuArquivo.add(menuItemExit);
 
         menuBar.add(menuArquivo);
+
+        jMenu1.setText("Temp");
+        menuBar.add(jMenu1);
 
         menuAjuda.setText("Ajuda");
 
@@ -146,6 +150,8 @@ public class JanelaPrincipal extends javax.swing.JFrame
 //        });
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenu menuArquivo;
     private javax.swing.JMenuBar menuBar;

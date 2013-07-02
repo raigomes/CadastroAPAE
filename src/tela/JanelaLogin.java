@@ -1,4 +1,4 @@
-package telas;
+package tela;
 
 
 public class JanelaLogin extends javax.swing.JInternalFrame

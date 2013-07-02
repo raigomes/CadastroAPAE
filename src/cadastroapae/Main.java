@@ -1,6 +1,6 @@
 package cadastroapae;
 
-import telas.JanelaPrincipal;
+import tela.JanelaPrincipal;
 import java.awt.Dimension;
 
 public class Main

@@ -8,7 +8,7 @@ import modelo.Medico;
 import modelo.Paciente;
 import modelo.Usuario;
 
-public class Banco implements Serializable
+public class APAE implements Serializable
 {
 
     List<Paciente> listaDePacientes;

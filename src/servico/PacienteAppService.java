@@ -18,21 +18,18 @@ public class PacienteAppService
     {
         try
         {
-            /** Passos:
-             *      1. Inicie uma transação.
-             *      2. Chame o método DAO relativo do Objeto referenciado.
-             *      3. Salve as alterações.
-             *      4. Retorne o ID do Objeto, no caso 'umPaciente'.
-             *      5. Feche a transação.
-             * 
-             *      Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico) e efetue o 'rollback'.
-             *          
-             **/
-            
+            // Passos:
+            //      1. Inicie uma transação.
+            //      2. Chame o método DAO relativo do Objeto referenciado.
+            //      3. Salve as alterações.
+            //      4. Retorne o ID do Objeto, no caso 'umPaciente'.
+            //      5. Feche a transação.
+            // 
+            //      Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico) e efetue o 'rollback'.
+
             // NENHUMA VALIDAÇÃO ESTÁ SENDO REALIZADA AQUI!!!
             //ConnUtil.beginTransaction();
             long numero = pacienteDAO.cadastra(umPaciente);
-
             //ConnUtil.commitTransaction();
 
             return numero;
@@ -44,7 +41,6 @@ public class PacienteAppService
             } catch (InfraestruturaException ie)
             {
             }
-
             throw e;
         } finally
         {
@@ -57,9 +53,7 @@ public class PacienteAppService
         try
         {
             //ConnUtil.beginTransaction();
-
             pacienteDAO.altera(umPaciente);
-
             //ConnUtil.commitTransaction();
         } catch (ObjetoNaoEncontradoException e)
         {
@@ -70,7 +64,6 @@ public class PacienteAppService
             {
                 throw ie;
             }
-
             throw new AplicacaoException("Paciente não encontrado");
         } catch (InfraestruturaException e)
         {
@@ -80,7 +73,6 @@ public class PacienteAppService
             } catch (InfraestruturaException ie)
             {
             }
-
             throw e;
         } finally
         {
@@ -93,9 +85,7 @@ public class PacienteAppService
         try
         {
             //ConnUtil.beginTransaction();
-
             pacienteDAO.exclui(numero);
-
             //ConnUtil.commitTransaction();
         } catch (ObjetoNaoEncontradoException e)
         {
@@ -106,7 +96,6 @@ public class PacienteAppService
             {
                 throw ie;
             }
-
             throw new AplicacaoException("Paciente não encontrado");
         } catch (InfraestruturaException e)
         {
@@ -116,7 +105,6 @@ public class PacienteAppService
             } catch (InfraestruturaException ie)
             {
             }
-
             throw e;
         } finally
         {
@@ -129,7 +117,7 @@ public class PacienteAppService
         try
         {
             Paciente umPaciente = pacienteDAO.recuperaPaciente(numero);
-
+            
             return umPaciente;
         } catch (ObjetoNaoEncontradoException e)
         {

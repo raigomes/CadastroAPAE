@@ -6,6 +6,7 @@ import java.sql.Date;
 public class Paciente implements Serializable
 {
 
+    /** Atributos **/
     private final static long serialVersionUID = 1;
     private long matricula;
     private String nome;
@@ -15,6 +16,7 @@ public class Paciente implements Serializable
     private String setor;
     private String diagnostico;
 
+    /** Construtores **/
     public Paciente()
     {
     }
@@ -40,6 +42,7 @@ public class Paciente implements Serializable
         this.diagnostico = diagnostico;
     }
 
+    /** Getters & Setters **/
     public long getMatricula()
     {
         return matricula;

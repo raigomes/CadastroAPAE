@@ -18,10 +18,19 @@ public class PacienteAppService
     {
         try
         {
+            /** Passos:
+             *      1. Inicie uma transação.
+             *      2. Chame o método DAO relativo do Objeto referenciado.
+             *      3. Salve as alterações.
+             *      4. Retorne o ID do Objeto, no caso 'umPaciente'.
+             *      5. Feche a transação.
+             * 
+             *      Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico) e efetue o 'rollback'.
+             *          
+             **/
+            
             // NENHUMA VALIDAÇÃO ESTÁ SENDO REALIZADA AQUI!!!
-
             //ConnUtil.beginTransaction();
-
             long numero = pacienteDAO.cadastra(umPaciente);
 
             //ConnUtil.commitTransaction();

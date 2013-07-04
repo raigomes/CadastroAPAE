@@ -45,6 +45,13 @@ public class JanelaPrincipal extends javax.swing.JFrame
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Cadastrar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         menuArquivo.add(jMenuItem1);
 
         menuItemLogin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
@@ -109,6 +116,19 @@ public class JanelaPrincipal extends javax.swing.JFrame
     {//GEN-HEADEREND:event_menuItemExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_menuItemExitActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem1ActionPerformed
+    {//GEN-HEADEREND:event_jMenuItem1ActionPerformed
+        /** Passos:
+         *      1. Leia as informações da tela.
+         *      2. Crie um novo objeto.
+         *      3. Atribua as informações lidas no objeto criado.
+         *      4. Chame o AppService do Objeto referenciado.
+         *      5. Informe que 'everything went better than expected' :)
+         *      
+         *      Em caso de erros, jogue uma exceção de Aplicação (pois há um erro lógico, e não físico)
+         **/
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

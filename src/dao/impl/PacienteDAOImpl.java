@@ -17,6 +17,13 @@ public class PacienteDAOImpl implements dao.PacienteDAO
         //  3. Retorne o ID de o 'umPaciente'
         //  
         //  Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico)
+
+//        try
+//        {
+//            
+//        } catch (exception.InfraestruturaException e)
+//        {
+//        }
     }
 
     @Override

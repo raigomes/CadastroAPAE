@@ -11,13 +11,12 @@ public class PacienteDAOImpl implements dao.PacienteDAO
     public long cadastra(Paciente umPaciente)
     {
         return 0;
-        /** Passos:
-         *      1. Pegue uma conexão
-         *      2. Inclua usando persistência o 'umPaciente'
-         *      3. Retorne o ID de o 'umPaciente'
-         *      
-         *      Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico)
-         **/
+        // Passos:
+        //  1. Pegue uma conexão
+        //  2. Inclua usando persistência o 'umPaciente'
+        //  3. Retorne o ID de o 'umPaciente'
+        //  
+        //  Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico)
     }
 
     @Override
@@ -43,5 +42,4 @@ public class PacienteDAOImpl implements dao.PacienteDAO
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

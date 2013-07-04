@@ -18,8 +18,7 @@ public class APAE implements Serializable
 
     public boolean adicionaPaciente(Paciente umPaciente)
     {
-        listaDePacientes.add(umPaciente);
-        return true;
+        return listaDePacientes.add(umPaciente);
     }
 
     public boolean adicionaMedico(Medico umMedico)

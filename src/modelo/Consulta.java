@@ -2,7 +2,9 @@ package modelo;
 
 import java.io.Serializable;
 
-public class Consulta implements Serializable{
+public class Consulta implements Serializable
+{
+
     private final static long serialVersionUID = 1;
     private long numero;
 
@@ -19,9 +21,15 @@ public class Consulta implements Serializable{
     {
         return numero;
     }
-    
+
     public void setNumero(Long numero)
     {
         this.numero = numero;
-    }    
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Consulta{" + "numero=" + numero + '}';
+    }
 }

@@ -1,6 +1,7 @@
 package util;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import modelo.Consulta;
@@ -11,14 +12,23 @@ import modelo.Usuario;
 public class APAE implements Serializable
 {
 
-    List<Paciente> listaDePacientes;
-    List<Medico> listaDeMedicos;
-    List<Consulta> listaDeConsultas;
-    List<Usuario> listaDeUsuarios;
+    private List<Paciente> listaDePacientes;
+    private List<Medico> listaDeMedicos;
+    private List<Consulta> listaDeConsultas;
+    private List<Usuario> listaDeUsuarios;
 
-    public boolean adicionaPaciente(Paciente umPaciente)
+    public APAE()
     {
-        return listaDePacientes.add(umPaciente);
+        listaDeConsultas = new ArrayList<>();
+        listaDeMedicos = new ArrayList<>();
+        listaDePacientes = new ArrayList<>();
+        listaDeUsuarios = new ArrayList<>();
+    }
+
+    public int adicionaPaciente(Paciente umPaciente)
+    {
+        listaDePacientes.add(umPaciente);
+        return listaDePacientes.indexOf(umPaciente);
     }
 
     public boolean adicionaMedico(Medico umMedico)
@@ -59,5 +69,17 @@ public class APAE implements Serializable
     public static void log(String msg)
     {
         System.out.println(new Date() + ": " + msg.toUpperCase());
+    }
+
+    @Override
+    public String toString()
+    {
+        String out = "APAE{ ";
+        for (modelo.Paciente e : listaDePacientes)
+        {
+            out += e;
+        }
+        out += '}';
+        return out;
     }
 }

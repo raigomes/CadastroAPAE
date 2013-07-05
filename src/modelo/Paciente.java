@@ -1,7 +1,8 @@
 package modelo;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Paciente implements Serializable
 {
@@ -27,7 +28,7 @@ public class Paciente implements Serializable
         this.endereco = endereco;
         this.telefone = telefone;
         this.dataDeNascimento = dataDeNascimento;
-        this.setor = setor;
+        this.setor = setor;        
         this.diagnostico = diagnostico;
     }
 
@@ -112,4 +113,10 @@ public class Paciente implements Serializable
     {
         this.diagnostico = diagnostico;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Paciente{" + "matricula=" + matricula + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", dataDeNascimento=" + dataDeNascimento + ", setor=" + setor + ", diagnostico=" + diagnostico + '}';
+    }    
 }

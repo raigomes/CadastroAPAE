@@ -1,8 +1,10 @@
 package dao.impl;
 
+import exception.InfraestruturaException;
 import exception.ObjetoNaoEncontradoException;
 import java.util.List;
 import modelo.*;
+import util.BDUtil;
 
 public class PacienteDAOImpl implements dao.PacienteDAO
 {
@@ -10,20 +12,20 @@ public class PacienteDAOImpl implements dao.PacienteDAO
     @Override
     public long cadastra(Paciente umPaciente)
     {
-        return 0;
         // Passos:
-        //  1. Pegue uma conexão
+        //  1. Pegue uma conexão (BD)
         //  2. Inclua usando persistência o 'umPaciente'
         //  3. Retorne o ID de o 'umPaciente'
         //  
         //  Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico)
-
-//        try
-//        {
-//            
-//        } catch (exception.InfraestruturaException e)
-//        {
-//        }
+        
+        try
+        {
+            return (long) (new BDUtil().getConnection().adicionaPaciente(umPaciente));
+        } catch (exception.InfraestruturaException e)
+        {
+            throw new InfraestruturaException(e);
+        }
     }
 
     @Override

@@ -20,4 +20,12 @@ public class Secretaria extends Usuario implements Serializable{
     public void setNumero(long numero) {
         this.numero = numero;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Secretaria{" + "numero=" + numero + '}';
+    }
+    
+    
 }

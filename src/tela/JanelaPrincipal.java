@@ -4,6 +4,10 @@
  */
 package tela;
 
+import java.awt.event.WindowEvent;
+import java.util.Iterator;
+import modelo.*;
+
 /**
  *
  * @author kanibal
@@ -38,8 +42,19 @@ public class JanelaPrincipal extends javax.swing.JFrame
         menuAjuda = new javax.swing.JMenu();
         menuItemSobre = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema de Cadastro APAE");
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                formWindowOpened(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosing(evt);
+            }
+        });
 
         menuArquivo.setText("Arquivo");
 
@@ -114,22 +129,60 @@ public class JanelaPrincipal extends javax.swing.JFrame
 
     private void menuItemExitActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_menuItemExitActionPerformed
     {//GEN-HEADEREND:event_menuItemExitActionPerformed
-        this.dispose();
+        //this.dispose();
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_menuItemExitActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem1ActionPerformed
     {//GEN-HEADEREND:event_jMenuItem1ActionPerformed
-        /** Passos:
-         *      1. Leia as informações da tela.
-         *      2. Crie um novo objeto.
-         *      3. Atribua as informações lidas no objeto criado.
-         *      4. Chame o AppService do Objeto referenciado.
-         *      5. Informe que 'everything went better than expected' :)
-         *      
-         *      Em caso de erros, jogue uma exceção de Aplicação (pois há um erro lógico, e não físico)
-         **/
+        // Passos:
+        //  1. Leia as informações da tela.
+        //  2. Crie um novo objeto.
+        //  3.Atribua as informações lidas no objeto criado.
+        //  4. Chame o AppService do Objeto referenciado.
+        //  5. Informe que 'everything went better than expected' :)
+        //
+        //  Em caso de erros, jogue uma exceção de Aplicação (pois há um erro lógico, e não físico)
+        
+        Paciente umPaciente = new Paciente("Paula", "Avenida Rio Branco", "2571.9541", new java.util.Date(), "Setor A", "TDAH");
+        if ((new servico.PacienteAppService().inclui(umPaciente)) >= 0)
+        {
+            System.out.println("everything went better than expected");
+            
+            for (Iterator it = new util.BDUtil().getConnection().getListaDePacientes().iterator(); it.hasNext();)
+            {
+                Object object = it.next();
+                System.out.println(object.toString());
+            }
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
+    {//GEN-HEADEREND:event_formWindowClosing
+        System.out.println("Salvando as configurações...");
+        if (new util.BDUtil().salvar())
+        {
+            System.out.println("Fechando App...");
+        } else
+        {
+            System.out.println("Um erro estranho ocorreu. [Mysterious M]");
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        System.out.println("Bem vindo! :)");
+        System.out.println("Carregando configurações...");
+        if (new util.BDUtil().carregar())
+        {
+            System.out.println("Configurações carregadas!");
+        } else
+        {
+            // Primeira vez que rodou e/ou não possui banco de dados
+            System.out.println("Nenhuma configuração foi carregada pois, aparentemente, esta é sua primeira vez.");
+            //System.out.println("Verifique suas configurações!");
+        }
+    }//GEN-LAST:event_formWindowOpened
     /**
      * @param args the command line arguments
      */

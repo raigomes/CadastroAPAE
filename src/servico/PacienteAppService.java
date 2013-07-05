@@ -5,6 +5,7 @@ import java.util.List;
 import modelo.Paciente;
 import dao.PacienteDAO;
 import dao.fabrica.FabricaDeDAOs;
+import dao.impl.PacienteDAOImpl;
 import exception.AplicacaoException;
 import exception.InfraestruturaException;
 import exception.ObjetoNaoEncontradoException;
@@ -12,18 +13,24 @@ import exception.ObjetoNaoEncontradoException;
 public class PacienteAppService
 {
 
-    private static PacienteDAO pacienteDAO = FabricaDeDAOs.getDAO(PacienteDAO.class);
+    //private static PacienteDAO pacienteDAO = FabricaDeDAOs.getDAO(PacienteDAO.class);
+    private static PacienteDAO pacienteDAO;
+    
+    static
+    {
+        pacienteDAO = new PacienteDAOImpl();
+    }
 
     public long inclui(Paciente umPaciente)
     {
         try
         {
             // Passos:
-            //      1. Inicie uma transação.
+            //      1. Inicie uma transação. (BD)
             //      2. Chame o método DAO relativo do Objeto referenciado.
-            //      3. Salve as alterações.
+            //      3. Salve as alterações. (BD)
             //      4. Retorne o ID do Objeto, no caso 'umPaciente'.
-            //      5. Feche a transação.
+            //      5. Feche a transação. (BD)
             // 
             //      Em caso de erros, jogue uma exceção de Infraestrutura (pois há um erro físico, e não lógico) e efetue o 'rollback'.
 

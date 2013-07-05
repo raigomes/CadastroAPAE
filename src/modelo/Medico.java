@@ -2,12 +2,13 @@ package modelo;
 
 import java.io.Serializable;
 
-public class Medico implements Serializable{
+public class Medico implements Serializable
+{
+
     private final static long serialVersionUID = 1;
     private long numero;
     private int CRM;
     private double salario;
-    
 
     public Medico()
     {
@@ -22,9 +23,15 @@ public class Medico implements Serializable{
     {
         return numero;
     }
-    
+
     public void setNumero(Long numero)
     {
         this.numero = numero;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Medico{" + "numero=" + numero + ", CRM=" + CRM + ", salario=" + salario + '}';
     }
 }
